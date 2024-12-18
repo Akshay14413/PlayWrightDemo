@@ -6,7 +6,24 @@ export class PyramidCoreTicketPage {
         this.projectManagementLink = page.locator('frame[name="contents"]').contentFrame().getByRole('link', { name: 'Project Mgmt', exact: true });
         this.ticketsLink = page.locator('frame[name="contents"]').contentFrame().getByRole('link', { name: 'Tickets', exact: true });
         this.assignLink = page.locator('frame[name="contents"]').contentFrame().getByRole('link', { name: 'Assign' });
-        this.assignTicketHeading = page.locator('frame[name="main"]').contentFrame().getByRole('cell', { name: 'Assign Ticket' });
+        
+        this.mainFrame = page.locator('frame[name="main"]');
+        this.assignTicketHeading = this.mainFrame.contentFrame().locator('form#frmAssignedDetail').getByRole('cell', { name: 'Assign Ticket' });
+        this.masterProjectDropdown = this.mainFrame.contentFrame().locator('form#frmAssignedDetail').locator('select#ddlMasterProject');
+        this.projectDropdown = this.mainFrame.contentFrame().locator('form#frmAssignedDetail').locator('select#ddlProject');
+        this.featureDropdown = this.mainFrame.contentFrame().locator('form#frmAssignedDetail').locator('select#ddlFeatures');
+        this.ticketIdTextbox = this.mainFrame.contentFrame().locator('form#frmAssignedDetail').locator('#txtTicketId');
+        this.ticketDescriptionTextbox = this.mainFrame.contentFrame().locator('form#frmAssignedDetail').locator('#txtTicketDcpn');
+        this.complexityDropdown = this.mainFrame.contentFrame().locator('form#frmAssignedDetail').locator('select#ddlComplexity');
+        this.priorityDropdown = this.mainFrame.contentFrame().locator('form#frmAssignedDetail').locator('select#ddlPriority');
+        this.AssignedUserDropdown = this.mainFrame.contentFrame().locator('form#frmAssignedDetail').locator('select#ddlAssigneduser');
+        this.dueDateCalenderButton = this.mainFrame.contentFrame().locator('form#frmAssignedDetail').getByRole('img', { name: 'Select from date' });
+        this.dueDate = (dateValue)=> this.mainFrame.contentFrame().locator('form#frmAssignedDetail').getByRole('link', { name: dateValue }).click();
+        this.dueYear = this.mainFrame.contentFrame().locator('form#frmAssignedDetail').locator('#ui-datepicker-div').locator('select.ui-datepicker-year');
+        this.dueMonth = this.mainFrame.contentFrame().locator('form#frmAssignedDetail').locator('#ui-datepicker-div').locator('select.ui-datepicker-month');
+        this.saveButton = this.mainFrame.contentFrame().locator('form#frmAssignedDetail').getByRole('button', { name: 'Save' });
+
+        /* this.assignTicketHeading = page.locator('frame[name="main"]').contentFrame().getByRole('cell', { name: 'Assign Ticket' });
         this.masterProjectDropdown = page.locator('frame[name="main"]').contentFrame().locator('select#ddlMasterProject');
         this.projectDropdown = page.locator('frame[name="main"]').contentFrame().locator('select#ddlProject');
         this.featureDropdown = page.locator('frame[name="main"]').contentFrame().locator('select#ddlFeatures');
@@ -19,7 +36,7 @@ export class PyramidCoreTicketPage {
         this.dueDate = (dateValue)=> page.locator('frame[name="main"]').contentFrame().getByRole('link', { name: dateValue }).click();
         this.dueYear = page.locator('frame[name="main"]').contentFrame().locator('#ui-datepicker-div').locator('select.ui-datepicker-year');
         this.dueMonth = page.locator('frame[name="main"]').contentFrame().locator('#ui-datepicker-div').locator('select.ui-datepicker-month');
-        this.saveButton = page.locator('frame[name="main"]').contentFrame().getByRole('button', { name: 'Save' });
+        this.saveButton = page.locator('frame[name="main"]').contentFrame().getByRole('button', { name: 'Save' }); */
     }
 
     async navigateToTicketsPage(){
