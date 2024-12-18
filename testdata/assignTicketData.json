@@ -1,0 +1,14 @@
+{
+    "masterProject" : "Comporium QA",
+    "project" : "MY COMPORIUM",
+    "feature" : "QA and Automation",
+    "ticketId" : "101",
+    "ticketDescription" : "PlaywrightPOC",
+    "complexity" : "Simple",
+    "priority" : "Low",
+    "assignedUser" : "Biradar Akshay Kumar (CELN00211)",
+    "dueDateYear" : "2024",
+    "dueDateMonth" : "Dec",
+    "dueDate" : "29"
+
+}
